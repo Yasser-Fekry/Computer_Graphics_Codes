@@ -284,3 +284,57 @@ def bresenham(screen, x1, y1, x2, y2, color):
 ```
 
 ---
+```Python
+# Image Processing 
+from PIL import Image
+from PIL import ImageFilter
+img = Image.open('test.png')
+blur = img.filter(ImageFilter.BLUR)
+emboss = img.filter(ImageFilter.EMBOSS)
+contour = img.filter(ImageFilter.CONTOUR)
+enhance = img.filter(ImageFilter.EDGE_ENHANCE)
+blur.show()
+emboss.show()
+contour.show()
+enhance.show()
+```
+---
+```python
+#OpenCV
+import cv2 as cv
+import numpy as np
+img = np.zeros((512,512))
+start = (200,200)
+end = (450,10)
+Black = (200 , 200 , 200)
+thinkes = 9
+rec = cv.rectangle(img , start , end , Black , thinkes)
+cv.imshow("test" , rec)
+cv.waitKey(0)
+```
+---
+```Python
+# OpenCV Put Text 
+import cv2 as cv
+import numpy as np
+
+# Create black image with 3 channels (RGB)
+img = np.zeros((512, 512, 3), dtype=np.uint8)
+
+# Parameters
+position = (50, 250)
+font = cv.FONT_HERSHEY_SIMPLEX
+scale = 1
+color = (255, 255, 255)  # white
+thickness = 2
+
+# Add text to image
+text_img = cv.putText(img, text="test", org=position, fontFace=font, fontScale=scale, color=color, thickness=thickness)
+
+# Show image
+cv.imshow("Text Image", img)
+cv.waitKey(0)
+cv.destroyAllWindows()
+
+```
+---
